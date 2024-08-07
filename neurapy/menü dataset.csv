@@ -1,4 +1,4 @@
-﻿yemek adı,pişme,içerik,yemek türü
+﻿YEMEK ADI,PİŞME,İÇERİK,YEMEK TÜRÜ
 Balık Çorbası,"soteleme, kaynatma","balık, tereyağ, mantar, kereviz, baharat, krema",Çorba
 Mercimek çorbası,"soteleme, kaynatma","Kırmızı mercimek, soğan,havuç,patates,sarımsak,domates,tereyağ,tuz,karabiber,kırmızı biber",Çorba
 Ezogelin çorbası,"soteleme, kaynatma","Kırmızı mercimek, pirinç,soğan,havuç,domates,sarımsak,tereyağ,tuz, karabiber, kırmızı biber,nane, pul biber,maydanoz",Çorba
@@ -26,3 +26,23 @@ Kiremitte Levrek,kiremitte ızgara,"mantar, biber, fesleğen, taze soğan, kaşa
 Somon Izgara,ızgara,"somon, roka, kırmızı soğan, marul, limon",Balık
 Dil Balığı Izgara,ızgara,"roka, marul, taze soğan, dil balığı, limon",Balık
 Somon Kavurma,kavurma,"kapya biber, sarı biber, mantar, soğan, somon",Balık
+Köfte Izgara ,ızgara,"ızgara köfte, pilav, patates, domates, biber ",Izgara
+Kaşarlı Izgara Köfte ,ızgara ,"pilav, patates, domates, biber, kaşarlı köfte ızgara",Izgara
+Piliç Izgara ,ızgara ,"pilav, domates, patates, biber, piliç ",Izgara
+Piliç Kavurma,kavurma,"soğan, mantar, domates, biber, baharat, piliç",Kavurma
+Beğendili Julyen Piliç,soteleme,"kapya biber,  çarliston biber,  közlenmiş patlıcan, piliç, soya, glüten, süt ve süt ürünü",Izgara
+Bonfile,ızgara,"pilav, patates, bonfile",Izgara
+Kaşarlı Bonfile,gratine ,"kaşar peyniri, bonfile, pilav, patates, süt ürünü",Izgara
+Beğendili Julyen Bonfile,gratine ,"kapya biber, çarliston biber, bonfile, patlıcan, glüten, süt ve süt ürünleri  ",Izgara
+Karışık Izgara,ızgara,"ızgara köfte, pirzola, biftek, kuzu eti, piliç eti, pilav, domates, biber",Izgara
+Çoban Kavurma,kavurma,"arpacık soğan, mantar, domates, biber, kuzu eti, pilav, soya, süt ürünü",Kavurma
+Sütlaç,pişirme,"süt, pirinç, şeker, su, nişasta, vanilin, tarçın",Tatlı 
+Triçela,pişirme ,"yumurta, şeker, un, süt, vanilin, kabartma tozu, glüten, yumurta, fındık, süt ve süt ürünü ",Tatlı 
+Aşure,pişirme,"buğday, nohut, kuru fasulye, kuru üzüm, kuru kayısı, ceviz, fındık, tarçın, şeker, vanilin",Tatlı 
+Profiterol ,pişirme,"un, su, tereyağ, yumurta, tuz, süt, şeker, vanilin, krema ",Tatlı 
+Volkanik ,fırınlama,"un, tereyağ, yumurta, tuz, şeker, vanilin, kabartma tozu ",Tatlı 
+Meyve Tatlıları,pişirme,"elma, şeftali, çilek, kivi, muz, karpuz, üzüm, şeker, bal, krema, yoğurt  ",Tatlı 
+Hamur Tatlıları ,fırınlama,"un, şeker, tereyağı, yumurta, süt, su, kabartma tozu ",Tatlı 
+Dondurma,pişirme,"süt, krema, şeker, vanilin",Tatlı 
+Meyve Tabağı,fırınlama ,"elma, şeftali, çilek, kivi, muz, karpuz, üzüm, yabanmersini, bal, nane ",Tatlı 
+Tahinli Sarma ,fırınlama,"yufka, tahin, şeker, ceviz, tarçın, tereyağ, su, süt, fındık",Tatlı 
