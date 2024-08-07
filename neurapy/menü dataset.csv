@@ -1,1 +1,28 @@
-﻿yemek,tat,pişme,içerik
+﻿yemek adı,pişme,içerik,yemek türü
+Balık Çorbası,"soteleme, kaynatma","balık, tereyağ, mantar, kereviz, baharat, krema",Çorba
+Mercimek çorbası,"soteleme, kaynatma","Kırmızı mercimek, soğan,havuç,patates,sarımsak,domates,tereyağ,tuz,karabiber,kırmızı biber",Çorba
+Ezogelin çorbası,"soteleme, kaynatma","Kırmızı mercimek, pirinç,soğan,havuç,domates,sarımsak,tereyağ,tuz, karabiber, kırmızı biber,nane, pul biber,maydanoz",Çorba
+Çoban Salata,,"Salatalık, domates, sivri biber, maydanoz, zeytinyağı, limon, tuz",Salata
+Mevsim Salata,,"Göbek salata, roka, havuç, domates, salatalık, akdeniz yeşilliği, maydanoz, kırmızı lahana, limon, tuz",Salata
+Söğüş Salata,,"Domates, salatalık, maydanoz, sivri biber, akdeniz yeşilliği, limon, tuz",Salata
+Hellim Peynirli Salata,kızartma,"kızarmış hellim peynir, marul, domates, salatalık, kırmızı soğan, zeytin, sivri biber, nane, zeytinyağı, limon, tuz",Salata
+Piliç Etli Salata,kızartma,"kızarmış piliç, göbek salata, roka, limon",Salata
+Kırmızı Etli Salata,ızgara,"ızgara bonfile, marul, salatalık, sivri biber, limon",Salata
+Biber Dolma,fırın,"dolmalık biber, soğan, kıyma, domates, pirinç,  tuz, karabiber, kimyon, pul biber, maydanoz, zeytinyağı, limon",Zeytinyağlı
+Soslu Patlıcan,fırın,"patlıcan, domates, kapya biber, soğan, sarımsak, zeytinyağı, tuz, karabiber, pul biber, dereotu, limon",Zeytinyağlı
+Enginar,buğulama,"enginar, soğan, havuç, patates, bezelye, zeytinyağı, limon, tuz, bakla, dereotu",Zeytinyağlı
+Taze Fasulye,"soteleme, buğulama, kaynatma","taze fasulye, domates, zeytinyağı, tuz, patates, kırmızı biber",Zeytinyağlı
+Yaprak Sarma,buğulama,"asma yaprağı, soğan, pirinç, kıyma, zeytinyağı, tuz, karabiber, pul biber, kimyon, limon",Zeytinyağlı
+Patates Tava,kızartma,"patates, tuz",Ara Sıcak
+Paçanga Böreği,fırın,"yufka, pastırma, kaşar",Ara Sıcak
+Mantar Graten,sote,"mantar, kaşar, tereyağ, tuz",Ara Sıcak
+Mantar Kavurma,sote,"mantar, domates, tereyağ, sivri biber, soğan, tuz",Ara Sıcak
+Julyen Dil Balığı,"kızartma, sote","dil balığı, tereyağ, yoğurt, havuç, tuz, dereotu",Ara Sıcak
+Çipura Izgara,ızgara,"roka, kırmızı soğan, maydanoz, limon, çipura",Balık
+Mezgit Tava,kızartma,"mezgit, ceviz, sarımsak, kapari, tuz, limon, maydanoz, yumurta sarısı, zeytinyağı",Balık
+Fesleğen Soslu Somon Izgara,,"somon, fesleğen, zeytinyağı, sarımsak, tuz, çam fıstığı, roka, turp ve tahin helvası",Balık
+Levrek Izgara,ızgara,"roka, kırmızı soğan, marul, limon, levrek",Balık
+Kiremitte Levrek,kiremitte ızgara,"mantar, biber, fesleğen, taze soğan, kaşar, tereyağı, levrek, kereviz",Balık
+Somon Izgara,ızgara,"somon, roka, kırmızı soğan, marul, limon",Balık
+Dil Balığı Izgara,ızgara,"roka, marul, taze soğan, dil balığı, limon",Balık
+Somon Kavurma,kavurma,"kapya biber, sarı biber, mantar, soğan, somon",Balık
