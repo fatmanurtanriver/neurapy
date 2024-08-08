@@ -1,3 +1,14 @@
+# menü yazdırma/öneri alma
+# öneri yapma (girdi al, menüden benzerlik hesaplama, öneri listesi sunma)
+# önerilerden satın almak isteyip istemediğini öğrenelim
+# öneriler içinden almak istediklerini seçtirme (fiyat hesaplama)
+# fiyat sunma
+# ekstra menüden almak istedikleri var mı diye soru sorma
+# varsa onları da alıp tekrar fiyat hesaplama
+# ödemeyi alma
+
+
+
 print("NEURAPY'A HOŞ GELDİNİZ !")
 class Neurapy():
     def __init__ (self, sistemi_acma = 'Kapalı'):
@@ -17,7 +28,9 @@ class Neurapy():
         else:
             print( 'Sistem kapatılmakta')
             self.sistemi_acma = 'Kapalı'
-            return "NEURAPY'A GELDİNİZ İÇİN SAĞ OLUN. HOŞÇAKALIN. TEKRAR BEKLERİZ."
+            return "NEURAPY'A GELDİĞİNİZ İÇİN SAĞ OLUN. HOŞÇAKALIN. TEKRAR BEKLERİZ."
+        
+    
             
         
                         
