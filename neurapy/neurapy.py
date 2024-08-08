@@ -7,7 +7,7 @@
 # varsa onları da alıp tekrar fiyat hesaplama
 # ödemeyi alma
 
-
+import pandas as pd
 
 print("NEURAPY'A HOŞ GELDİNİZ !")
 class Neurapy():
@@ -31,8 +31,6 @@ class Neurapy():
             return "NEURAPY'A GELDİĞİNİZ İÇİN SAĞ OLUN. HOŞÇAKALIN. TEKRAR BEKLERİZ."
         
     
-            
-        
                         
 a = Neurapy()
     
