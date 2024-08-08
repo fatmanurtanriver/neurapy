@@ -38,11 +38,17 @@ class Neurapy():
         else:
             file_path = 'menu_dataset.csv'
             df = pd.read_csv(file_path)
-            sütun = df['YEMEK ADI']
-            sütun1 = df['İÇERİK']
-            for i, a in zip(sütun, sütun1):
+            yemek_adı = df['YEMEK ADI']
+            icerik = df['İÇERİK']
+            for i, a in zip(yemek_adı, icerik):
                 print(i,'\n -',a)
         
+    def kullanıcı_istek(self):
+        liste = []
+        for i in range(0, 5, 1):
+            istek = input('Lütfen istediğiniz yemekleri girin: ')
+            liste.append(istek)
+        print (liste)
     
                         
 a = Neurapy()
@@ -57,4 +63,7 @@ while True:
 
     elif islem == '3':
         a.menu_yazdırma()
+    
+    elif islem == '4':
+        a.kullanıcı_istek()
     
