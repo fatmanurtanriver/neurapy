@@ -29,6 +29,14 @@ class Neurapy():
             print( 'Sistem kapatılmakta')
             self.sistemi_acma = 'Kapalı'
             return "NEURAPY'A GELDİĞİNİZ İÇİN SAĞ OLUN. HOŞÇAKALIN. TEKRAR BEKLERİZ."
+    
+    def menu_yazdırma(self):
+        file_path = 'menu_dataset.csv'
+        df = pd.read_csv(file_path)
+        sütun = df['YEMEK ADI']
+        sütun1 = df['İÇERİK']
+        for i, a in zip(sütun, sütun1):
+            print(i,'\n -',a)
         
     
                         
@@ -39,6 +47,9 @@ while True:
     if islem == '1':
         a.sistem_acma()
 
-    if islem == '2':
+    elif islem == '2':
         a.sistem_kapat()
+
+    elif islem == '3':
+        a.menu_yazdırma()
     
