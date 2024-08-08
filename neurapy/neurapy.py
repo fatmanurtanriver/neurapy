@@ -31,12 +31,17 @@ class Neurapy():
             return "NEURAPY'A GELDİĞİNİZ İÇİN SAĞ OLUN. HOŞÇAKALIN. TEKRAR BEKLERİZ."
     
     def menu_yazdırma(self):
-        file_path = 'menu_dataset.csv'
-        df = pd.read_csv(file_path)
-        sütun = df['YEMEK ADI']
-        sütun1 = df['İÇERİK']
-        for i, a in zip(sütun, sütun1):
-            print(i,'\n -',a)
+
+        if self.sistemi_acma == 'Kapalı':
+            print('Lütfen önce sistemi açın.')
+        
+        else:
+            file_path = 'menu_dataset.csv'
+            df = pd.read_csv(file_path)
+            sütun = df['YEMEK ADI']
+            sütun1 = df['İÇERİK']
+            for i, a in zip(sütun, sütun1):
+                print(i,'\n -',a)
         
     
                         
