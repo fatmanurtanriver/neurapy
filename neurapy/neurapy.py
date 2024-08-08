@@ -1,3 +1,33 @@
 print("NEURAPY'A HOŞ GELDİNİZ !")
-class neurapy():
-    def makine_acma(self):
+class Neurapy():
+    def __init__ (self, sistemi_acma = 'Kapalı'):
+        self.sistemi_acma= sistemi_acma
+    
+    def sistem_acma(self):
+        if self.sistemi_acma == 'Açık':
+            return 'Sistem zaten açık'
+        else:
+            print( 'Sistem açılmakta')
+            self.sistemi_acma = 'Açık'
+            return (self.sistemi_acma)
+        
+    def sistem_kapat(self):
+        if self.sistemi_acma == 'Kapalı':
+            return 'Sistem zaten kapalı'
+        else:
+            print( 'Sistem kapatılmakta')
+            self.sistemi_acma = 'Kapalı'
+            return "NEURAPY'A GELDİNİZ İÇİN SAĞ OLUN. HOŞÇAKALIN. TEKRAR BEKLERİZ."
+            
+        
+                        
+a = Neurapy()
+    
+while True:
+    islem = input('Sistemi açmak için 1, kapatmak için 2 \n')
+    if islem == '1':
+        a.sistem_acma()
+
+    if islem == '2':
+        a.sistem_kapat()
+    
