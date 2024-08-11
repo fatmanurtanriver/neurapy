@@ -1,59 +1,59 @@
-﻿YEMEK ADI,PİŞME,İÇERİK,YEMEK TÜRÜ
-Balık Çorbası,"soteleme, kaynatma","balık, tereyağ, mantar, kereviz, baharat, krema",Çorba
-Mercimek çorbası,"soteleme, kaynatma","Kırmızı mercimek, soğan,havuç,patates,sarımsak,domates,tereyağ,tuz,karabiber,kırmızı biber",Çorba
-Ezogelin çorbası,"soteleme, kaynatma","Kırmızı mercimek, pirinç,soğan,havuç,domates,sarımsak,tereyağ,tuz, karabiber, kırmızı biber,nane, pul biber,maydanoz",Çorba
-Çoban Salata,salata,"Salatalık, domates, sivri biber, maydanoz, zeytinyağı, limon, tuz",Salata
-Mevsim Salata,salata,"Göbek salata, roka, havuç, domates, salatalık, akdeniz yeşilliği, maydanoz, kırmızı lahana, limon, tuz",Salata
-Söğüş Salata,salata,"Domates, salatalık, maydanoz, sivri biber, akdeniz yeşilliği, limon, tuz",Salata
-Hellim Peynirli Salata,kızartma,"kızarmış hellim peynir, marul, domates, salatalık, kırmızı soğan, zeytin, sivri biber, nane, zeytinyağı, limon, tuz",Salata
-Piliç Etli Salata,kızartma,"kızarmış piliç, göbek salata, roka, limon",Salata
-Kırmızı Etli Salata,ızgara,"ızgara bonfile, marul, salatalık, sivri biber, limon",Salata
-Biber Dolma,fırınlama,"dolmalık biber, soğan, kıyma, domates, pirinç,  tuz, karabiber, kimyon, pul biber, maydanoz, zeytinyağı, limon",Zeytinyağlı
-Soslu Patlıcan,fırınlama,"patlıcan, domates, kapya biber, soğan, sarımsak, zeytinyağı, tuz, karabiber, pul biber, dereotu, limon",Zeytinyağlı
-Enginar,buğulama,"enginar, soğan, havuç, patates, bezelye, zeytinyağı, limon, tuz, bakla, dereotu",Zeytinyağlı
-Taze Fasulye,"soteleme, buğulama, kaynatma","taze fasulye, domates, zeytinyağı, tuz, patates, kırmızı biber",Zeytinyağlı
-Yaprak Sarma,buğulama,"asma yaprağı, soğan, pirinç, kıyma, zeytinyağı, tuz, karabiber, pul biber, kimyon, limon",Zeytinyağlı
-Patates Tava,kızartma,"patates, tuz",Ara Sıcak
-Paçanga Böreği,fırınlama,"un, tereyağ, pastırma, kaşar",Ara Sıcak
-Mantar Graten,sote,"mantar, kaşar, tereyağ, tuz",Ara Sıcak
-Mantar Kavurma,sote,"mantar, domates, tereyağ, sivri biber, soğan, tuz",Ara Sıcak
-Julyen Dil Balığı,"kızartma, sote","dil balığı, tereyağ, yoğurt, havuç, tuz, dereotu",Ara Sıcak
-Çipura Izgara,ızgara,"roka, kırmızı soğan, maydanoz, limon, çipura",Balık
-Mezgit Tava,kızartma,"mezgit, ceviz, sarımsak, kapari, tuz, limon, maydanoz, yumurta sarısı, zeytinyağı",Balık
-Fesleğen Soslu Somon Izgara,ızgara,"somon, fesleğen, zeytinyağı, sarımsak, tuz, çam fıstığı, roka, turp, tahin, şeker",Balık
-Levrek Izgara,ızgara,"roka, kırmızı soğan, marul, limon, levrek",Balık
-Kiremitte Levrek,gratine ,"mantar, biber, fesleğen, taze soğan, kaşar, tereyağı, levrek, kereviz",Balık
-Somon Izgara,ızgara,"somon, roka, kırmızı soğan, marul, limon",Balık
-Dil Balığı Izgara,ızgara,"roka, marul, taze soğan, dil balığı, limon",Balık
-Somon Kavurma,kavurma,"kapya biber, sarı biber, mantar, soğan, somon",Balık
-Köfte Izgara ,ızgara,"ızgara köfte, pilav, patates, domates, biber ",Izgara
-Kaşarlı Izgara Köfte ,ızgara ,"pilav, patates, domates, biber, kaşarlı köfte ızgara",Izgara
-Piliç Izgara ,ızgara ,"pilav, domates, patates, biber, piliç ",Izgara
-Piliç Kavurma,kavurma,"soğan, mantar, domates, biber, baharat, piliç",Kavurma
-Beğendili Julyen Piliç,soteleme,"kapya biber,  çarliston biber,  közlenmiş patlıcan, piliç, soya",Izgara
-Bonfile,ızgara,"pilav, patates, bonfile, tuz",Izgara
-Kaşarlı Bonfile,gratine ,"kaşar, bonfile, pirinç, tuz, tereyağ, patates",Izgara
-Beğendili Julyen Bonfile,gratine ,"kapya biber, çarliston biber, bonfile, patlıcan",Izgara
-Karışık Izgara,ızgara,"kıyma, tuz, maydanoz, soğan, karabiber, pul biber, pirzola, biftek, kuzu eti, piliç, pilav, domates, biber",Izgara
-Çoban Kavurma,kavurma,"arpacık soğan, mantar, domates, biber, kuzu eti, pirinç, tuz, tereyağ, soya",Kavurma
-Sütlaç,pişirme,"süt, pirinç, şeker, su, nişasta, vanilin, tarçın",Tatlı 
-Trileçe,fırınlama,"yumurta, şeker, un, süt, vanilin, kabartma tozu, yumurta, fındık",Tatlı 
-Aşure,pişirme,"buğday, nohut, kuru fasulye, kuru üzüm, kuru kayısı, ceviz, fındık, tarçın, şeker, vanilin",Tatlı 
-Profiterol ,fırınlama,"un, tereyağ, yumurta, tuz, süt, şeker, vanilin, krema ",Tatlı 
-Volkanik ,fırınlama,"un, tereyağ, yumurta, tuz, şeker, vanilin, kabartma tozu ",Tatlı 
-Ayva Tatlısı,pişirme,"ayva, şeker, tarçın, karanfil, limon, ceviz, süt, krema, vanilin",Tatlı 
-Kabak Tatlısı,pişirme,"balkabağı, şeker, ceviz",Tatlı 
-Fındıklı Baklava,fırınlama,"un, tereyağ, şeker, limon, fındık",Tatlı 
-Fıstıklı Baklava,fırınlama,"un, tereyağ, şeker, limon, antep fıstığı",Tatlı 
-Cevizli Baklava,fırınlama,"un, tereyağ, şeker, limon, ceviz",Tatlı 
-Künefe,kızartma,"un, tuz, tereyağ, peynir, şeker, limon, antep fıstığı",Tatlı 
-Revani,fırınlama,"irmik, şeker, yumurta, limon, vanilin, yoğurt, zeytinyağı",Tatlı 
-Kakaolu Dondurma,dondurma,"kakao, süt, krema, şeker",Tatlı 
-Çilekli Dondurma,dondurma,"süt, krema, şeker, çilek",Tatlı 
-Limonlu Dondurma,dondurma,"süt, krema, şeker, limon",Tatlı 
-Böğütlenli Dondurma,dondurma,"süt, krema, şeker, böğürtlen",Tatlı 
-Ahududulu Dondurma,dondurma,"süt, krema, şeker, ahududu",Tatlı 
-Şeftalili Dondurma,dondurma,"süt, krema, şeker, şeftali",Tatlı 
-Vanilyalı Dondurma,dondurma,"süt, krema, şeker, vanilin",Tatlı 
-Meyve Tabağı,meyve,"elma, şeftali, çilek, kivi, muz, karpuz, üzüm, yabanmersini, bal, nane ",Tatlı 
-Tahinli Sarma ,fırınlama,"un, tereyağ, tahin, şeker, ceviz, tarçın, süt, fındık",Tatlı 
+﻿YEMEK ADI,PİŞME,İÇERİK,YEMEK TÜRÜ,FİYAT
+Balık Çorbası,"soteleme, kaynatma","balık, tereyağ, mantar, kereviz, baharat, krema",Çorba,"50,00"
+Mercimek çorbası,"soteleme, kaynatma","Kırmızı mercimek, soğan,havuç,patates,sarımsak,domates,tereyağ,tuz,karabiber,kırmızı biber",Çorba,"40,00"
+Ezogelin çorbası,"soteleme, kaynatma","Kırmızı mercimek, pirinç,soğan,havuç,domates,sarımsak,tereyağ,tuz, karabiber, kırmızı biber,nane, pul biber,maydanoz",Çorba,"40,00"
+Çoban Salata,salata,"Salatalık, domates, sivri biber, maydanoz, zeytinyağı, limon, tuz",Salata,"35,00"
+Mevsim Salata,salata,"Göbek salata, roka, havuç, domates, salatalık, akdeniz yeşilliği, maydanoz, kırmızı lahana, limon, tuz",Salata,"35,00"
+Söğüş Salata,salata,"Domates, salatalık, maydanoz, sivri biber, akdeniz yeşilliği, limon, tuz",Salata,"35,00"
+Hellim Peynirli Salata,kızartma,"kızarmış hellim peynir, marul, domates, salatalık, kırmızı soğan, zeytin, sivri biber, nane, zeytinyağı, limon, tuz",Salata,"75,00"
+Piliç Etli Salata,kızartma,"kızarmış piliç, göbek salata, roka, limon",Salata,"58,00"
+Kırmızı Etli Salata,ızgara,"ızgara bonfile, marul, salatalık, sivri biber, limon",Salata,"130,00"
+Biber Dolma,fırınlama,"dolmalık biber, soğan, kıyma, domates, pirinç,  tuz, karabiber, kimyon, pul biber, maydanoz, zeytinyağı, limon",Zeytinyağlı,"42,00"
+Soslu Patlıcan,fırınlama,"patlıcan, domates, kapya biber, soğan, sarımsak, zeytinyağı, tuz, karabiber, pul biber, dereotu, limon",Zeytinyağlı,"42,00"
+Enginar,buğulama,"enginar, soğan, havuç, patates, bezelye, zeytinyağı, limon, tuz, bakla, dereotu",Zeytinyağlı,"42,00"
+Taze Fasulye,"soteleme, buğulama, kaynatma","taze fasulye, domates, zeytinyağı, tuz, patates, kırmızı biber",Zeytinyağlı,"42,00"
+Yaprak Sarma,buğulama,"asma yaprağı, soğan, pirinç, kıyma, zeytinyağı, tuz, karabiber, pul biber, kimyon, limon",Zeytinyağlı,"42,00"
+Patates Tava,kızartma,"patates, tuz",Ara Sıcak,"30,00"
+Paçanga Böreği,fırınlama,"un, tereyağ, pastırma, kaşar",Ara Sıcak,"50,00"
+Mantar Graten,sote,"mantar, kaşar, tereyağ, tuz",Ara Sıcak,"55,00"
+Mantar Kavurma,sote,"mantar, domates, tereyağ, sivri biber, soğan, tuz",Ara Sıcak,"40,00"
+Julyen Dil Balığı,"kızartma, sote","dil balığı, tereyağ, yoğurt, havuç, tuz, dereotu",Ara Sıcak,"155,00"
+Çipura Izgara,ızgara,"roka, kırmızı soğan, maydanoz, limon, çipura",Balık,"225,00"
+Mezgit Tava,kızartma,"mezgit, ceviz, sarımsak, kapari, tuz, limon, maydanoz, yumurta sarısı, zeytinyağı",Balık,"190,00"
+Fesleğen Soslu Somon Izgara,ızgara,"somon, fesleğen, zeytinyağı, sarımsak, tuz, çam fıstığı, roka, turp, tahin, şeker",Balık,"300,00"
+Levrek Izgara,ızgara,"roka, kırmızı soğan, marul, limon, levrek",Balık,"220,00"
+Kiremitte Levrek,gratine ,"mantar, biber, fesleğen, taze soğan, kaşar, tereyağı, levrek, kereviz",Balık,"300,00"
+Somon Izgara,ızgara,"somon, roka, kırmızı soğan, marul, limon",Balık,"290,00"
+Dil Balığı Izgara,ızgara,"roka, marul, taze soğan, dil balığı, limon",Balık,"200,00"
+Somon Kavurma,kavurma,"kapya biber, sarı biber, mantar, soğan, somon",Balık,"300,00"
+Köfte Izgara ,ızgara,"ızgara köfte, pilav, patates, domates, biber ",Izgara,"140,00"
+Kaşarlı Izgara Köfte ,ızgara ,"pilav, patates, domates, biber, kaşarlı köfte ızgara",Izgara,"150,00"
+Piliç Izgara ,ızgara ,"pilav, domates, patates, biber, piliç ",Izgara,"95,00"
+Piliç Kavurma,kavurma,"soğan, mantar, domates, biber, baharat, piliç",Kavurma,"100,00"
+Beğendili Julyen Piliç,soteleme,"kapya biber,  çarliston biber,  közlenmiş patlıcan, piliç, soya",Izgara,"105,00"
+Bonfile,ızgara,"pilav, patates, bonfile, tuz",Izgara,"300,00"
+Kaşarlı Bonfile,gratine ,"kaşar, bonfile, pirinç, tuz, tereyağ, patates",Izgara,"310,00"
+Beğendili Julyen Bonfile,gratine ,"kapya biber, çarliston biber, bonfile, patlıcan",Izgara,"285,00"
+Karışık Izgara,ızgara,"kıyma, tuz, maydanoz, soğan, karabiber, pul biber, pirzola, biftek, kuzu eti, piliç, pilav, domates, biber",Izgara,"290,00"
+Çoban Kavurma,kavurma,"arpacık soğan, mantar, domates, biber, kuzu eti, pirinç, tuz, tereyağ, soya",Kavurma,"240,00"
+Sütlaç,pişirme,"süt, pirinç, şeker, su, nişasta, vanilin, tarçın",Tatlı ,"40,00"
+Trileçe,fırınlama,"yumurta, şeker, un, süt, vanilin, kabartma tozu, yumurta, fındık",Tatlı ,"40,00"
+Aşure,pişirme,"buğday, nohut, kuru fasulye, kuru üzüm, kuru kayısı, ceviz, fındık, tarçın, şeker, vanilin",Tatlı ,"40,00"
+Profiterol ,fırınlama,"un, tereyağ, yumurta, tuz, süt, şeker, vanilin, krema ",Tatlı ,"40,00"
+Volkanik ,fırınlama,"un, tereyağ, yumurta, tuz, şeker, vanilin, kabartma tozu ",Tatlı ,"58,00"
+Ayva Tatlısı,pişirme,"ayva, şeker, tarçın, karanfil, limon, ceviz, süt, krema, vanilin",Tatlı ,"44,00"
+Kabak Tatlısı,pişirme,"balkabağı, şeker, ceviz",Tatlı ,"44,00"
+Fındıklı Baklava,fırınlama,"un, tereyağ, şeker, limon, fındık",Tatlı ,"44,00"
+Fıstıklı Baklava,fırınlama,"un, tereyağ, şeker, limon, antep fıstığı",Tatlı ,"44,00"
+Cevizli Baklava,fırınlama,"un, tereyağ, şeker, limon, ceviz",Tatlı ,"44,00"
+Künefe,kızartma,"un, tuz, tereyağ, peynir, şeker, limon, antep fıstığı",Tatlı ,"44,00"
+Revani,fırınlama,"irmik, şeker, yumurta, limon, vanilin, yoğurt, zeytinyağı",Tatlı ,"44,00"
+Kakaolu Dondurma,dondurma,"kakao, süt, krema, şeker",Tatlı ,"35,00"
+Çilekli Dondurma,dondurma,"süt, krema, şeker, çilek",Tatlı ,"35,00"
+Limonlu Dondurma,dondurma,"süt, krema, şeker, limon",Tatlı ,"35,00"
+Böğütlenli Dondurma,dondurma,"süt, krema, şeker, böğürtlen",Tatlı ,"35,00"
+Ahududulu Dondurma,dondurma,"süt, krema, şeker, ahududu",Tatlı ,"35,00"
+Şeftalili Dondurma,dondurma,"süt, krema, şeker, şeftali",Tatlı ,"35,00"
+Vanilyalı Dondurma,dondurma,"süt, krema, şeker, vanilin",Tatlı ,"35,00"
+Meyve Tabağı,meyve,"elma, şeftali, çilek, kivi, muz, karpuz, üzüm, yabanmersini, bal, nane ",Tatlı ,"40,00"
+Tahinli Sarma ,fırınlama,"un, tereyağ, tahin, şeker, ceviz, tarçın, süt, fındık",Tatlı ,"50,00"
