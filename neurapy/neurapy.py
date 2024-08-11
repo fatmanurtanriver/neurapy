@@ -1,5 +1,5 @@
 # menü yazdırma/öneri alma
-# öneri yapma (girdi al, menüden benzerlik hesaplama, öneri listesi sunma)
+# öneri yapma (girdi al, menüden benzerlik hesaplama (cosine benzerlik formülünü yazdığımız bir sınıf oluşturarak yapabiliriz.), öneri listesi sunma)
 # önerilerden satın almak isteyip istemediğini öğrenelim
 # öneriler içinden almak istediklerini seçtirme (fiyat hesaplama)
 # fiyat sunma
@@ -8,6 +8,7 @@
 # ödemeyi alma
 
 import pandas as pd
+
 
 print("NEURAPY'A HOŞ GELDİNİZ !")
 class Neurapy():
@@ -18,7 +19,7 @@ class Neurapy():
         if self.sistemi_acma == 'Açık':
             return 'Sistem zaten açık'
         else:
-            print( 'Sistem açılmakta')
+            print("Sistem açılıyor...")
             self.sistemi_acma = 'Açık'
             return (self.sistemi_acma)
         
@@ -26,14 +27,19 @@ class Neurapy():
         if self.sistemi_acma == 'Kapalı':
             return 'Sistem zaten kapalı'
         else:
-            print( 'Sistem kapatılmakta')
+            print("Sistem kapatılıyor...")
             self.sistemi_acma = 'Kapalı'
+<<<<<<< Updated upstream
             return "NEURAPY'A GELDİĞİNİZ İÇİN SAĞ OLUN. HOŞÇAKALIN. TEKRAR BEKLERİZ."
     
     def menu_yazdırma(self):
 
         if self.sistemi_acma == 'Kapalı':
             print('Lütfen önce sistemi açın.')
+=======
+            return "NEURAPY'A GELDİĞİNİZ İÇİN TEŞEKKÜRLER. TEKRAR GÖRÜŞMEK DİLEĞİYLE."
+    
+>>>>>>> Stashed changes
         
         else:
             file_path = 'menu_dataset.csv'
