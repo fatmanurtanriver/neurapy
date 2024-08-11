@@ -57,7 +57,5 @@ while True:
 
     elif islem == '3':
         a.menu_yazdırma()
-    
-    elif islem == '4':
-        a.kullanıcı_istek()
+  
     
