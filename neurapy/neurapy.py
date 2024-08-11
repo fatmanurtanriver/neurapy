@@ -43,6 +43,53 @@ class Neurapy():
             icerik = df['İÇERİK']
             for i, a in zip(yemek_adı, icerik):
                 print(i,'\n -',a)
+    
+    def oneri(self):
+
+        file_path = 'menu_dataset.csv'
+
+        df = pd.read_csv(file_path)
+
+        for i , a in zip(df['YEMEK ADI'], df['İÇERİK']):
+            print(i, '\n -', a)
+
+
+        kullanici_listesi = input("Kullanıcıdan alınacak listeyi (virgülle ayrılmış) girin:  \n").split(',')
+
+        def benzerlik_kontrolü(veri1, veri2):
+            return veri1 == veri2
+
+        benzerlik_sonuçları = []
+
+        index = -1
+        for hücre_verisi in df['İÇERİK']:
+            
+                
+                veriler = str(hücre_verisi).split(',')
+                veriler = [veri.strip() for veri in veriler]  
+                sayac = 0
+                index += 1
+                for veri in veriler: 
+                        for kullanıcı_verisi in kullanici_listesi:
+                            kullanıcı_verisi = kullanıcı_verisi.strip()
+                            oran = benzerlik_kontrolü(kullanıcı_verisi, veri)
+                            if oran == True:
+                                sayac += 1
+                if sayac != 0:
+                    benzerlik_sonuçları.append({
+                                    'sayac': sayac, 
+                                    'index': index  
+                })
+
+        benzerlik_sonuçları.sort(key=lambda x:x['sayac'])
+
+
+        sonuç_df = pd.DataFrame(benzerlik_sonuçları)
+        print('\n')
+        a = sonuç_df.tail(5)
+        for index in a['index']:
+            print('Yemek Adı: ' ,df['YEMEK ADI'][index], '   Yemeğin Fiyatı: ', df['FİYAT'][index],  '\n -', 'Yemeğin İçeriği: ', df['İÇERİK'][index], '\n')
+
         
                         
 a = Neurapy()
@@ -57,5 +104,8 @@ while True:
 
     elif islem == '3':
         a.menu_yazdırma()
-  
+    
+    elif islem == '4':
+        a.oneri()
+        break
     
