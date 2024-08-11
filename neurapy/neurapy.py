@@ -29,17 +29,12 @@ class Neurapy():
         else:
             print("Sistem kapatılıyor...")
             self.sistemi_acma = 'Kapalı'
-<<<<<<< Updated upstream
             return "NEURAPY'A GELDİĞİNİZ İÇİN SAĞ OLUN. HOŞÇAKALIN. TEKRAR BEKLERİZ."
     
     def menu_yazdırma(self):
 
         if self.sistemi_acma == 'Kapalı':
             print('Lütfen önce sistemi açın.')
-=======
-            return "NEURAPY'A GELDİĞİNİZ İÇİN TEŞEKKÜRLER. TEKRAR GÖRÜŞMEK DİLEĞİYLE."
-    
->>>>>>> Stashed changes
         
         else:
             file_path = 'menu_dataset.csv'
@@ -49,13 +44,6 @@ class Neurapy():
             for i, a in zip(yemek_adı, icerik):
                 print(i,'\n -',a)
         
-    def kullanıcı_istek(self):
-        liste = []
-        for i in range(0, 5, 1):
-            istek = input('Lütfen istediğiniz yemekleri girin: ')
-            liste.append(istek)
-        print (liste)
-    
                         
 a = Neurapy()
     
