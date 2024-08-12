@@ -8,7 +8,7 @@
 # ödemeyi alma
 
 import pandas as pd
-
+import numpy as np
 
 print("NEURAPY'A HOŞ GELDİNİZ !")
 class Neurapy():
@@ -44,7 +44,7 @@ class Neurapy():
             for i, a in zip(yemek_adı, icerik):
                 print(i,'\n -',a)
     
-    def oneri(self):
+    def icerige_gore_oneri(self):
 
         file_path = 'menu_dataset.csv'
 
@@ -90,8 +90,38 @@ class Neurapy():
         for index in a['index']:
             print('Yemek Adı: ' ,df['YEMEK ADI'][index], '   Yemeğin Fiyatı: ', df['FİYAT'][index],  '\n -', 'Yemeğin İçeriği: ', df['İÇERİK'][index], '\n')
 
-        
-                        
+    def yemege_gore_oneri(self):
+        df = pd.read_csv("neurapy/neurapy/menu_dataset.csv")
+        df.set_index("YEMEK ADI", inplace=True)
+        df.index = df.index.str.lower()
+        while True:
+                girdi_al = input("Menümüzden beğendiğiniz bir yemeğin adını giriniz (küçük harflerle giriniz):")
+                if girdi_al in df.index:
+                    oneri_list = []
+                    girdi_set = str(df.loc[girdi_al].values[1]).split(",")
+                    girdi_set.append(df.loc[girdi_al].values[0])
+                    girdi_set.append(df.loc[girdi_al].values[2])
+                    for index, row in df.iterrows():
+                        menu_pisme = row.values[0]
+                        menu_tur= row.values[2]
+                        veriler = str(row.values[1]).split(",")
+                        veriler.append(menu_pisme)
+                        veriler.append(menu_tur)
+                        kesisim_bul=np.intersect1d(veriler,girdi_set)
+                        oneri_list.append({
+                            "yemek adı": index,
+                            "yemek fiyatı": row["FİYAT"],
+                            "benzerlik miktarı": len(kesisim_bul)})
+                    df_oneri=oneri_list.sort(key=lambda x:x["benzerlik miktarı"])
+                    df_oneri=pd.DataFrame(oneri_list)
+                    print(df_oneri.tail(5))
+                    break
+                elif girdi_al=="q":
+                    break
+                else:
+                    print("menümüzde böyle bir yemek bulunmamaktadır. Tekrar deneyiniz. (Çıkmak için q'ya basınız.)")
+
+                            
 a = Neurapy()
     
 while True:
