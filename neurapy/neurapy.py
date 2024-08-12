@@ -63,8 +63,6 @@ class Neurapy():
 
         index = -1
         for hücre_verisi in df['İÇERİK']:
-            
-                
                 veriler = str(hücre_verisi).split(',')
                 veriler = [veri.strip() for veri in veriler]  
                 sayac = 0
@@ -107,5 +105,4 @@ while True:
     
     elif islem == '4':
         a.oneri()
-        break
     
