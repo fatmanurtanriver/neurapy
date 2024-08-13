@@ -87,9 +87,15 @@ class Neurapy():
         a = sonuç_df.tail(5)
         for index in a['index']:
             print('Yemek Adı: ' ,df['YEMEK ADI'][index], '   Yemeğin Fiyatı: ', df['FİYAT'][index],  '\n -', 'Yemeğin İçeriği: ', df['İÇERİK'][index], '\n')
-
+        satın_alma = input('Satın almak istediğiniz yemek var mı?(evet/hayır): ').lower()
+        if satın_alma == 'evet':
+            satın_alınanlar = input('Satın almak istediğiniz yemeği ya da yemekleri girerseniz(virgülle ayırarak girebilirsiniz): ').split(',') 
+            satın_alınanlar = [a.strip() for a in satın_alınanlar]
+        for i in satın_alınanlar:
+            if i in df['YEMEK ADI']:
+                 print('i')
     def yemege_gore_oneri(self):
-        df = pd.read_csv("neurapy/neurapy/menu_dataset.csv")
+        df = pd.read_csv("menu_dataset.csv")
         df.set_index("YEMEK ADI", inplace=True)
         df.index = df.index.str.lower()
 
@@ -139,7 +145,7 @@ class Neurapy():
         #def yemek_ekle 
 
 
-                    elif satin_al_sor=="hayır":
+                    else:
                         print("İyi günler diler, Neurapy'a yine bekleriz.")
                         break
                     
@@ -165,5 +171,6 @@ while True:
         a.menu_yazdırma()
     
     elif islem == '4':
-        a.oneri()
-    
+        a.icerige_gore_oneri()
+    elif islem == '5':
+         a.yemege_gore_oneri()
