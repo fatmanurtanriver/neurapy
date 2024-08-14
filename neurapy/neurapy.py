@@ -89,11 +89,26 @@ class Neurapy():
             print('Yemek Adı: ' ,df['YEMEK ADI'][index], '   Yemeğin Fiyatı: ', df['FİYAT'][index],  '\n -', 'Yemeğin İçeriği: ', df['İÇERİK'][index], '\n')
         satın_alma = input('Satın almak istediğiniz yemek var mı?(evet/hayır): ').lower()
         if satın_alma == 'evet':
-            satın_alınanlar = input('Satın almak istediğiniz yemeği ya da yemekleri girerseniz(virgülle ayırarak girebilirsiniz): ').split(',') 
-            satın_alınanlar = [a.strip() for a in satın_alınanlar]
-        for i in satın_alınanlar:
-            if i in df['YEMEK ADI']:
-                 print('i')
+            satın_alınan = input('Satın almak istediğiniz yemeği ya da yemekleri girerseniz(küçük harflelerle ve virgülle ayırarak girebilirsiniz): ').split(',') 
+            satın_alınan = [a.strip() for a in satın_alınan]
+        toplam = 0
+        df['YEMEK ADI'] = df['YEMEK ADI'].str.lower()
+        for i in satın_alınan:
+            satir = df[df['YEMEK ADI'] == i]
+            if not satir.empty:
+                 fiyat = satir['FİYAT'].values[0]
+                 toplam += fiyat
+                 print(fiyat) 
+        print('Yemeklerinizin toplam fiyatı: ', toplam)
+        onay = input('Siparişinizi onaylıyor musunuz(e/h)? ')
+        if onay == 'e':
+            print('Neurapyı tercih ettiniz için teşekkürler...')
+        elif onay == 'h':
+            print('İşlemlerinizi tekrar girebilmek için')
+        else:
+            print ('İşleminiz iptal oldu.')
+
+
     def yemege_gore_oneri(self):
         df = pd.read_csv("menu_dataset.csv")
         df.set_index("YEMEK ADI", inplace=True)
@@ -141,9 +156,6 @@ class Neurapy():
                                 print(f"toplam ücret: {ara_toplam}")
                                 islem_onay=input("başka bir işlem yapmak istiyor musunuz ? (evet/hayır)").lower()
                                 odeme_onay=input("ödeme yapmak istiyor musunuz ?(evet/hayır)").lower()
-                                    
-        #def yemek_ekle 
-
 
                     else:
                         print("İyi günler diler, Neurapy'a yine bekleriz.")
@@ -160,7 +172,7 @@ class Neurapy():
 a = Neurapy()
     
 while True:
-    islem = input('Sistemi açmak için 1, kapatmak için 2 \n')
+    islem = input("Sistemi açmak için 1, kapatmak için 2'ye basabilirsiniz.\n")
     if islem == '1':
         a.sistem_acma()
 
@@ -172,5 +184,6 @@ while True:
     
     elif islem == '4':
         a.icerige_gore_oneri()
+
     elif islem == '5':
          a.yemege_gore_oneri()
