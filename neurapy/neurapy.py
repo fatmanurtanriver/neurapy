@@ -108,12 +108,14 @@ class Neurapy():
                     print(fiyat) 
             print('Yemeklerinizin toplam fiyatı: ', toplam)
             onay = input('Siparişinizi onaylıyor musunuz(e/h)? ')
-            if onay == 'e':
-                print('Neurapyı tercih ettiniz için teşekkürler...')
-            elif onay == 'h':
-                print('İşlemlerinizi iptal ediliyor.')
-            else:
-                print ('Hatalı giriş yaptığınız için işleminiz iptal oldu.')
+            try:
+                if onay == 'e':
+                    print('Neurapyı tercih ettiniz için teşekkürler...')
+                elif onay == 'h':
+                    print('İşlemlerinizi iptal ediliyor.')
+
+            except:
+                print ('Hatalı giriş yaptınız.')
 
 
     def yemege_gore_oneri(self):
