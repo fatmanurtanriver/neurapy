@@ -9,6 +9,7 @@
 
 import pandas as pd
 import numpy as np
+import time as t
 
 print("NEURAPY'A HOŞ GELDİNİZ !")
 class Neurapy():
@@ -19,18 +20,21 @@ class Neurapy():
         if self.sistemi_acma == 'Açık':
             return 'Sistem zaten açık'
         else:
+            print("NEURAPY'A HOŞ GELDİNİZ !")
             print("Sistem açılıyor...")
+            t.sleep(1)
             self.sistemi_acma = 'Açık'
-            return (self.sistemi_acma)
+            print('Sistem açıldı.')
         
     def sistem_kapat(self):
         if self.sistemi_acma == 'Kapalı':
             return 'Sistem zaten kapalı'
         else:
             print("Sistem kapatılıyor...")
+            t.sleep(1)
             self.sistemi_acma = 'Kapalı'
-            return "NEURAPY'A GELDİĞİNİZ İÇİN SAĞ OLUN. HOŞÇAKALIN. TEKRAR BEKLERİZ."
-    
+            print("NEURAPY'A GELDİĞİNİZ İÇİN SAĞ OLUN. HOŞÇAKALIN. TEKRAR BEKLERİZ.")
+            
     def menu_yazdırma(self):
 
         if self.sistemi_acma == 'Kapalı':
@@ -108,13 +112,13 @@ class Neurapy():
             if onay == 'e':
                 print('Neurapyı tercih ettiniz için teşekkürler...')
             elif onay == 'h':
-                print('İşlemlerinizi tekrar girebilmek için')
+                print('İşlemlerinizi iptal ediliyor.')
             else:
-                print ('İşleminiz iptal oldu.')
+                print ('Hatalı giriş yaptığınız için işleminiz iptal oldu.')
 
 
     def yemege_gore_oneri(self):
-        
+
         if self.sistemi_acma == 'Kapalı':
             print('Lütfen önce sistemi açın.')
         else:
