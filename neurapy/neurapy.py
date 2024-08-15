@@ -101,7 +101,7 @@ class Neurapy():
         print('Yemeklerinizin toplam fiyatı: ', toplam)
         islem_onay=input("başka bir işlem yapmak istiyor musunuz ? (evet/hayır)").lower()
         if islem_onay=="evet":
-            print("yemekler sepete eklendi ! menüden başka bir yemek eklemek isterseniz ana menüden 'Yemek Ekle' işlemini seçiniz.")
+            print("yemekler sepete eklendi !")
         elif islem_onay=="hayır":
             odeme_onay=input("ödemeyi onaylıyor musunuz ? (evet/hayır)").lower()
             if odeme_onay=="evet":
@@ -155,7 +155,7 @@ class Neurapy():
                             ara_toplam=0
                             satin_al=input("hangi yiyecekleri satın almak istiyorsunuz ? numarasını giriniz:")
 
-                            satin_al = str(satin_al).split(",")
+                            satin_al = [i.strip() for i in satin_al.split(",")]
                             satin_al=[int(b) for b in satin_al]
                             fiyatlar=[]
                             for c in satin_al:
@@ -163,19 +163,22 @@ class Neurapy():
                                 fiyatlar.append(c)
                             ara_toplam+=sum(fiyatlar)
                             print(f"toplam ücret: {ara_toplam}")
-                            self.toplam+=ara_toplam
-                            islem_onay=input("başka bir işlem yapmak istiyor musunuz ? (evet/hayır)").lower()
+                            islem_onay=input("işlemi onaylıyor musunuz ? (evet/hayır)").lower()
                             if islem_onay=="evet":
-                                print("yemekler sepete eklendi ! menüden başka bir yemek eklemek isterseniz ana menüden 'Yemek Ekle' işlemini seçiniz.")
-                            elif islem_onay=="hayır":
+                                print("yemekler sepete eklendi !")
                                 odeme_onay=input("ödemeyi onaylıyor musunuz ? (evet/hayır)").lower()
                                 if odeme_onay=="evet":
+                                    self.toplam+=ara_toplam
                                     print("Ödemeniz onaylandı ! İyi günler diler, Neurapy'a yine bekleriz.")
                                     break
                                 elif odeme_onay=="hayır":
                                     print("ödeme onaylanmadı. ana menüye dönülüyor...")
+                                    break
                                 else:
                                     print("hatalı girdi.")
+                            elif islem_onay=="hayır":
+                                print("işlem onaylanmadı. ana menüye dönülüyor...")
+                                break
                             else:
                                 print("hatalı girdi.")
                     
@@ -200,20 +203,21 @@ class Neurapy():
         print(yemek_listesi_df)
         toplam_ekle=yemek_listesi_df["FİYAT"].sum()
         print(f"eklenecek ücret: {toplam_ekle}")
-        self.toplam+=toplam_ekle
-        print(f"TOPLAM: {self.toplam}")
-        islem_onay=input("başka bir işlem yapmak istiyor musunuz ? (evet/hayır)").lower()      
+        islem_onay=input("işlemi onaylıyor musunuz ?(evet/hayır)").lower()      
         if islem_onay=="evet":
-            print("yemekler sepete eklendi !")
+            self.toplam+=toplam_ekle
+            print(f"yemekler sepete eklendi ! TOPLAM: {self.toplam}")
             odeme_onay=input("ödemeyi onaylıyor musunuz ? (evet/hayır)").lower()
             if odeme_onay=="evet":
                 print("Ödemeniz onaylandı ! İyi günler diler, Neurapy'a yine bekleriz.")
             elif odeme_onay=="hayır":
+                self.toplam-=toplam_ekle
                 print("ödeme onaylanmadı. ana menüye dönülüyor...")
                 time.sleep(1)
             else:
                 print("hatalı girdi.")
         elif islem_onay=="hayır":
+            self.toplam-=toplam_ekle
             print("işlem onaylanmadı. ana menüye dönülüyor...")
             time.sleep(1)
         else:
@@ -229,7 +233,7 @@ print("""
       3.Menü Yazdırma
       4.Yemek İçeriğine Göre Yemek Önerisi Alma
       5.Yemeğe Göre Öneri Alma
-      6.Yemek Ekle""")
+      6.Sepete Yemek Ekle""")
     
 while True:
     islem = int(input("""Sistemi açmak için 1, kapatmak için 2'ye basabilirsiniz. 
