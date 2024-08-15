@@ -9,11 +9,12 @@
 
 import pandas as pd
 import numpy as np
+import time
 
-print("NEURAPY'A HOŞ GELDİNİZ !")
 class Neurapy():
     def __init__ (self, sistem= 'Kapalı'):
         self.sistem= sistem
+        self.toplam=0
     
     def sistem_acma(self):
         if self.sistem == 'Açık':
@@ -31,7 +32,7 @@ class Neurapy():
             self.sistem = 'Kapalı'
             return "NeuraPy'a geldiğiniz için teşekkürler, iyi günler dileriz.."
     
-    def menu_yazdırma(self):
+    def menu_yazdirma(self):
 
         if self.sistem == 'Kapalı':
             print('Lütfen önce sistemi açın.')
@@ -56,7 +57,7 @@ class Neurapy():
             print(i, '\n -', a)
 
 
-        kullanici_listesi = input("Kullanıcıdan alınacak listeyi (virgülle ayrılmış) girin:  \n").split(',')
+        kullanici_listesi = input("yemekte bulunmasını istediğiniz ürün/ürünlerin adını (virgülle ayrılmış) girin:  \n").split(',')
 
         def benzerlik_kontrolü(veri1, veri2):
             return veri1 == veri2
@@ -89,10 +90,10 @@ class Neurapy():
         a = sonuç_df.tail(5)
         for index in a['index']:
             print('Yemek Adı: ' ,df['YEMEK ADI'][index], '   Yemeğin Fiyatı: ', df['FİYAT'][index],  '\n -', 'Yemeğin İçeriği: ', df['İÇERİK'][index], '\n')
-        satın_alma = input('Satın almak istediğiniz yemek var mı?(evet/hayır): ').lower()
+        satın_alma = input('Önerilenlerden satın almak istediğiniz yemek var mı?(evet/hayır): ').lower()
         if satın_alma == 'evet':
-            satın_alınan = input('Satın almak istediğiniz yemeği ya da yemekleri girerseniz(küçük harflelerle ve virgülle ayırarak girebilirsiniz): ').split(',') 
-            satın_alınan = [a.strip() for a in satın_alınan]
+            satın_alınan = input('Satın almak istediğiniz yemeği ya da yemek/yemeklerin adını giriniz (virgülle ayırarak): ').lower()
+            satın_alınan = [a.strip() for a in satın_alınan.split(",")]
         toplam = 0
         df['YEMEK ADI'] = df['YEMEK ADI'].str.lower()
         for i in satın_alınan:
@@ -100,15 +101,21 @@ class Neurapy():
             if not satir.empty:
                  fiyat = satir['FİYAT'].values[0]
                  toplam += fiyat
-                 print(fiyat) 
+        self.toplam+=toplam
         print('Yemeklerinizin toplam fiyatı: ', toplam)
-        onay = input('Siparişinizi onaylıyor musunuz(e/h)? ')
-        if onay == 'e':
-            print('Neurapyı tercih ettiniz için teşekkürler...')
-        elif onay == 'h':
-            print('İşlemlerinizi tekrar girebilmek için')
-        else:
-            print ('İşleminiz iptal oldu.')
+        islem_onay=input("başka bir işlem yapmak istiyor musunuz ? (evet/hayır)").lower()
+        if islem_onay=="evet":
+            print("yemekler sepete eklendi ! menüden başka bir yemek eklemek isterseniz ana menüden 'Yemek Ekle' işlemini seçiniz.")
+        elif islem_onay=="hayır":
+            odeme_onay=input("ödemeyi onaylıyor musunuz ? (evet/hayır)").lower()
+            if odeme_onay=="evet":
+                print("Ödemeniz onaylandı ! İyi günler diler, Neurapy'a yine bekleriz.")
+            elif odeme_onay=="hayır":
+                print("ödeme onaylanmadı. ana menüye dönülüyor...")
+                time.sleep(1)
+            else:
+                print("hatalı girdi.")
+        
 
 
     def yemege_gore_oneri(self):
@@ -160,12 +167,21 @@ class Neurapy():
                                 fiyatlar.append(c)
                             ara_toplam+=sum(fiyatlar)
                             print(f"toplam ücret: {ara_toplam}")
+                            self.toplam+=ara_toplam
                             islem_onay=input("başka bir işlem yapmak istiyor musunuz ? (evet/hayır)").lower()
-                            odeme_onay=input("ödeme yapmak istiyor musunuz ?(evet/hayır)").lower()
-
-                        else:
-                            print("İyi günler diler, Neurapy'a yine bekleriz.")
-                            break
+                            if islem_onay=="evet":
+                                print("yemekler sepete eklendi ! menüden başka bir yemek eklemek isterseniz ana menüden 'Yemek Ekle' işlemini seçiniz.")
+                            elif islem_onay=="hayır":
+                                odeme_onay=input("ödemeyi onaylıyor musunuz ? (evet/hayır)").lower()
+                                if odeme_onay=="evet":
+                                    print("Ödemeniz onaylandı ! İyi günler diler, Neurapy'a yine bekleriz.")
+                                    break
+                                elif odeme_onay=="hayır":
+                                    print("ödeme onaylanmadı. ana menüye dönülüyor...")
+                                else:
+                                    print("hatalı girdi.")
+                            else:
+                                print("hatalı girdi.")
                     
                     elif girdi_al=="q":
                         break
@@ -175,17 +191,38 @@ class Neurapy():
 
 
     def yemek_ekle(self):
-         df = pd.read_csv("menu_dataset.csv")
-         yemek_listesi={}
-         yemek_isimleri=input("eklemek istediğiniz yemek/yemeklerin adını (virgülle ayırarak) giriniz:").lower()
-         yemek_isimleri=[n.strip() for n in yemek_isimleri.split(",")]
-         df["YEMEK ADI"]=df["YEMEK ADI"].str.lower().values
-         for yemek in yemek_isimleri:
+        df = pd.read_csv("neurapy/neurapy/menu_dataset.csv")
+        fiyat_list=[]
+        yemek_isimleri=input("eklemek istediğiniz yemek/yemeklerin adını (virgülle ayırarak) giriniz:").lower()
+        yemek_isimleri=[n.strip() for n in yemek_isimleri.split(",")]
+        df["YEMEK ADI"]=df["YEMEK ADI"].str.lower().values
+        for yemek, fiyat in df.iterrows():
             if yemek in df["YEMEK ADI"]:
-                fiyat = df.loc[df["YEMEK ADI"] == yemek, "FİYAT"].values
-                yemek_listesi[yemek] = fiyat
-         yemek_listesi=pd.DataFrame(yemek_listesi)
-         print(yemek_listesi)
+                fiyat_list.append(fiyat.values[4])
+        yemek_listesi=dict(zip(yemek_isimleri,fiyat_list)) 
+        yemek_listesi_df=pd.DataFrame(yemek_listesi.items(), columns= ["YEMEK ADI", "FİYAT"])
+        print(yemek_listesi_df)
+        toplam_ekle=yemek_listesi_df["FİYAT"].sum()
+        print(f"eklenecek ücret: {toplam_ekle}")
+        self.toplam+=toplam_ekle
+        print(f"TOPLAM: {self.toplam}")
+        islem_onay=input("başka bir işlem yapmak istiyor musunuz ? (evet/hayır)").lower()      
+        if islem_onay=="evet":
+            print("yemekler sepete eklendi !")
+            odeme_onay=input("ödemeyi onaylıyor musunuz ? (evet/hayır)").lower()
+            if odeme_onay=="evet":
+                print("Ödemeniz onaylandı ! İyi günler diler, Neurapy'a yine bekleriz.")
+            elif odeme_onay=="hayır":
+                print("ödeme onaylanmadı. ana menüye dönülüyor...")
+                time.sleep(1)
+            else:
+                print("hatalı girdi.")
+        elif islem_onay=="hayır":
+            print("işlem onaylanmadı. ana menüye dönülüyor...")
+            time.sleep(1)
+        else:
+            print("hatalı girdi.")         
+                    
 
 
 
@@ -196,29 +233,36 @@ a = Neurapy()
 print("""
       Neurapy'a Hoş Geldiniz !
       Hangi işlemi yapmak istersiniz ?
-      1.Makine açma
-      2.Makine Kapatma
+      1.Sistem açma
+      2.Sistem Kapatma
       3.Menü Yazdırma
       4.Yemek İçeriğine Göre Yemek Önerisi Alma
       5.Yemeğe Göre Öneri Alma
       6.Yemek Ekle""")
     
 while True:
-    islem = input("""Sistemi açmak için 1, kapatmak için 2'ye basabilirsiniz. 
+    islem = int(input("""Sistemi açmak için 1, kapatmak için 2'ye basabilirsiniz. 
 Menüyü yazdırmak için 3 basın. İçeriğe göre öneri almak için 4 basınız.
-Yemeğe göre öneri için 5 basabilirsiniz. \n """)
-    if islem == '1':
-        a.sistem_acma()
-
-    elif islem == '2':
-        a.sistem_kapat()
-
-    elif islem == '3':
-        a.menu_yazdırma()
+Yemeğe göre öneri için 5 basabilirsiniz. \n """))
     
-    elif islem == '4':
-        a.icerige_gore_oneri()
+    try:
+        if islem == 1:
+            a.sistem_acma()
 
+        elif islem == 2:
+            a.sistem_kapat()
 
-    elif islem == '5':
-         a.yemege_gore_oneri()
+        elif islem == 3:
+            a.menu_yazdirma()
+        
+        elif islem == 4:
+            a.icerige_gore_oneri()
+
+        elif islem == 5:
+            a.yemege_gore_oneri()
+        
+        elif islem== 6:
+            a.yemek_ekle()
+
+    except ValueError:
+        print("Hatalı işlem.")
