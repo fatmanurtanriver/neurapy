@@ -31,10 +31,9 @@ class Neurapy():
             return 'Sistem zaten kapalı'
         else:
             print("Sistem kapatılıyor...")
-            t.sleep(1)
             self.sistemi_acma = 'Kapalı'
-            print("NEURAPY'A GELDİĞİNİZ İÇİN SAĞ OLUN. HOŞÇAKALIN. TEKRAR BEKLERİZ.")
-            
+            return "NEURAPY'A GELDİĞİNİZ İÇİN SAĞ OLUN. HOŞÇAKALIN. TEKRAR BEKLERİZ."
+    
     def menu_yazdırma(self):
 
         if self.sistemi_acma == 'Kapalı':
