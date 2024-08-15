@@ -9,43 +9,45 @@
 
 import pandas as pd
 import numpy as np
-import time
 
 class Neurapy():
     def __init__ (self, sistem= 'Kapalı'):
         self.sistem= sistem
-        self.toplam=0
     
     def sistem_acma(self):
-        if self.sistem == 'Açık':
+        if self.sistemi_acma == 'Açık':
             return 'Sistem zaten açık'
         else:
+            print("NEURAPY'A HOŞ GELDİNİZ !")
             print("Sistem açılıyor...")
-            self.sistem = 'Açık'
-            return (self.sistem)
+            time.sleep(1)
+            self.sistemi_acma = 'Açık'
+            print('Sistem açıldı.')
         
     def sistem_kapat(self):
-        if self.sistem == 'Kapalı':
+        if self.sistemi_acma == 'Kapalı':
             return 'Sistem zaten kapalı'
         else:
             print("Sistem kapatılıyor...")
-            self.sistem = 'Kapalı'
-            return "NeuraPy'a geldiğiniz için teşekkürler, iyi günler dileriz.."
+            self.sistemi_acma = 'Kapalı'
+            return "NEURAPY'A GELDİĞİNİZ İÇİN SAĞ OLUN. HOŞÇAKALIN. TEKRAR BEKLERİZ."
     
     def menu_yazdirma(self):
 
-        if self.sistem == 'Kapalı':
+        if self.sistemi_acma == 'Kapalı':
             print('Lütfen önce sistemi açın.')
         
         else:
             file_path = 'menu_dataset.csv'
             df = pd.read_csv(file_path)
-            for i , a in zip(df['YEMEK ADI'], df['İÇERİK']):
-                print(i, '\n -', a)
+            yemek_adı = df['YEMEK ADI']
+            icerik = df['İÇERİK']
+            for i, a in zip(yemek_adı, icerik):
+                print(i,'\n -',a)
     
     def icerige_gore_oneri(self):
 
-        if self.sistem == 'Kapalı':
+        if self.sistemi_acma == 'Kapalı':
             print('Lütfen önce sistemi açın.')
         else:
 
@@ -53,36 +55,36 @@ class Neurapy():
 
             df = pd.read_csv(file_path)
 
-        for i , a in zip(df['YEMEK ADI'], df['İÇERİK']):
-            print(i, '\n -', a)
+            for i , a in zip(df['YEMEK ADI'], df['İÇERİK']):
+                print(i, '\n -', a)
 
 
-        kullanici_listesi = input("yemekte bulunmasını istediğiniz ürün/ürünlerin adını (virgülle ayrılmış) girin:  \n").split(',')
+        kullanici_listesi = input("Kullanıcıdan alınacak listeyi (virgülle ayrılmış) girin:  \n").split(',')
 
-        def benzerlik_kontrolü(veri1, veri2):
-            return veri1 == veri2
+            def benzerlik_kontrolü(veri1, veri2):
+                return veri1 == veri2
 
-        benzerlik_sonuçları = []
+            benzerlik_sonuçları = []
 
-        index = -1
-        for hücre_verisi in df['İÇERİK']:
-                veriler = str(hücre_verisi).split(',')
-                veriler = [veri.strip() for veri in veriler]  
-                sayac = 0
-                index += 1
-                for veri in veriler: 
-                        for kullanıcı_verisi in kullanici_listesi:
-                            kullanıcı_verisi = kullanıcı_verisi.strip()
-                            oran = benzerlik_kontrolü(kullanıcı_verisi, veri)
-                            if oran == True:
-                                sayac += 1
-                if sayac != 0:
-                    benzerlik_sonuçları.append({
-                                    'sayac': sayac, 
-                                    'index': index  
-                })
+            index = -1
+            for hücre_verisi in df['İÇERİK']:
+                    veriler = str(hücre_verisi).split(',')
+                    veriler = [veri.strip() for veri in veriler]  
+                    sayac = 0
+                    index += 1
+                    for veri in veriler: 
+                            for kullanıcı_verisi in kullanici_listesi:
+                                kullanıcı_verisi = kullanıcı_verisi.strip()
+                                oran = benzerlik_kontrolü(kullanıcı_verisi, veri)
+                                if oran == True:
+                                    sayac += 1
+                    if sayac != 0:
+                        benzerlik_sonuçları.append({
+                                        'sayac': sayac, 
+                                        'index': index  
+                    })
 
-        benzerlik_sonuçları.sort(key=lambda x:x['sayac'])
+            benzerlik_sonuçları.sort(key=lambda x:x['sayac'])
 
 
         sonuç_df = pd.DataFrame(benzerlik_sonuçları)
@@ -90,10 +92,10 @@ class Neurapy():
         a = sonuç_df.tail(5)
         for index in a['index']:
             print('Yemek Adı: ' ,df['YEMEK ADI'][index], '   Yemeğin Fiyatı: ', df['FİYAT'][index],  '\n -', 'Yemeğin İçeriği: ', df['İÇERİK'][index], '\n')
-        satın_alma = input('Önerilenlerden satın almak istediğiniz yemek var mı?(evet/hayır): ').lower()
+        satın_alma = input('Satın almak istediğiniz yemek var mı?(evet/hayır): ').lower()
         if satın_alma == 'evet':
-            satın_alınan = input('Satın almak istediğiniz yemeği ya da yemek/yemeklerin adını giriniz (virgülle ayırarak): ').lower()
-            satın_alınan = [a.strip() for a in satın_alınan.split(",")]
+            satın_alınan = input('Satın almak istediğiniz yemeği ya da yemekleri girerseniz(küçük harflelerle ve virgülle ayırarak girebilirsiniz): ').split(',') 
+            satın_alınan = [a.strip() for a in satın_alınan]
         toplam = 0
         df['YEMEK ADI'] = df['YEMEK ADI'].str.lower()
         for i in satın_alınan:
@@ -101,26 +103,20 @@ class Neurapy():
             if not satir.empty:
                  fiyat = satir['FİYAT'].values[0]
                  toplam += fiyat
-        self.toplam+=toplam
+                 print(fiyat) 
         print('Yemeklerinizin toplam fiyatı: ', toplam)
-        islem_onay=input("başka bir işlem yapmak istiyor musunuz ? (evet/hayır)").lower()
-        if islem_onay=="evet":
-            print("yemekler sepete eklendi ! menüden başka bir yemek eklemek isterseniz ana menüden 'Yemek Ekle' işlemini seçiniz.")
-        elif islem_onay=="hayır":
-            odeme_onay=input("ödemeyi onaylıyor musunuz ? (evet/hayır)").lower()
-            if odeme_onay=="evet":
-                print("Ödemeniz onaylandı ! İyi günler diler, Neurapy'a yine bekleriz.")
-            elif odeme_onay=="hayır":
-                print("ödeme onaylanmadı. ana menüye dönülüyor...")
-                time.sleep(1)
-            else:
-                print("hatalı girdi.")
-        
+        onay = input('Siparişinizi onaylıyor musunuz(e/h)? ')
+        if onay == 'e':
+            print('Neurapyı tercih ettiniz için teşekkürler...')
+        elif onay == 'h':
+            print('İşlemlerinizi tekrar girebilmek için')
+        else:
+            print ('İşleminiz iptal oldu.')
 
 
     def yemege_gore_oneri(self):
-        
-        if self.sistem == 'Kapalı':
+
+        if self.sistemi_acma == 'Kapalı':
             print('Lütfen önce sistemi açın.')
         else:
             df = pd.read_csv("menu_dataset.csv")
@@ -156,8 +152,8 @@ class Neurapy():
 
                         satin_al_sor=input("önerilenlerden satın almak istediğiniz bir yemek var mı ? (evet/hayır").lower()
                         if satin_al_sor=="evet":
-                            ara_toplam=0
-                            satin_al=input("hangi yiyecekleri satın almak istiyorsunuz ? numarasını giriniz:")
+                                    ara_toplam=0
+                                    satin_al=input("hangi yiyecekleri satın almak istiyorsunuz ? numarasını giriniz:")
 
                             satin_al = str(satin_al).split(",")
                             satin_al=[int(b) for b in satin_al]
@@ -167,21 +163,12 @@ class Neurapy():
                                 fiyatlar.append(c)
                             ara_toplam+=sum(fiyatlar)
                             print(f"toplam ücret: {ara_toplam}")
-                            self.toplam+=ara_toplam
                             islem_onay=input("başka bir işlem yapmak istiyor musunuz ? (evet/hayır)").lower()
-                            if islem_onay=="evet":
-                                print("yemekler sepete eklendi ! menüden başka bir yemek eklemek isterseniz ana menüden 'Yemek Ekle' işlemini seçiniz.")
-                            elif islem_onay=="hayır":
-                                odeme_onay=input("ödemeyi onaylıyor musunuz ? (evet/hayır)").lower()
-                                if odeme_onay=="evet":
-                                    print("Ödemeniz onaylandı ! İyi günler diler, Neurapy'a yine bekleriz.")
-                                    break
-                                elif odeme_onay=="hayır":
-                                    print("ödeme onaylanmadı. ana menüye dönülüyor...")
-                                else:
-                                    print("hatalı girdi.")
-                            else:
-                                print("hatalı girdi.")
+                            odeme_onay=input("ödeme yapmak istiyor musunuz ?(evet/hayır)").lower()
+
+                        else:
+                            print("İyi günler diler, Neurapy'a yine bekleriz.")
+                            break
                     
                     elif girdi_al=="q":
                         break
@@ -191,38 +178,17 @@ class Neurapy():
 
 
     def yemek_ekle(self):
-        df = pd.read_csv("neurapy/neurapy/menu_dataset.csv")
-        fiyat_list=[]
-        yemek_isimleri=input("eklemek istediğiniz yemek/yemeklerin adını (virgülle ayırarak) giriniz:").lower()
-        yemek_isimleri=[n.strip() for n in yemek_isimleri.split(",")]
-        df["YEMEK ADI"]=df["YEMEK ADI"].str.lower().values
-        for yemek, fiyat in df.iterrows():
+         df = pd.read_csv("menu_dataset.csv")
+         yemek_listesi={}
+         yemek_isimleri=input("eklemek istediğiniz yemek/yemeklerin adını (virgülle ayırarak) giriniz:").lower()
+         yemek_isimleri=[n.strip() for n in yemek_isimleri.split(",")]
+         df["YEMEK ADI"]=df["YEMEK ADI"].str.lower().values
+         for yemek in yemek_isimleri:
             if yemek in df["YEMEK ADI"]:
-                fiyat_list.append(fiyat.values[4])
-        yemek_listesi=dict(zip(yemek_isimleri,fiyat_list)) 
-        yemek_listesi_df=pd.DataFrame(yemek_listesi.items(), columns= ["YEMEK ADI", "FİYAT"])
-        print(yemek_listesi_df)
-        toplam_ekle=yemek_listesi_df["FİYAT"].sum()
-        print(f"eklenecek ücret: {toplam_ekle}")
-        self.toplam+=toplam_ekle
-        print(f"TOPLAM: {self.toplam}")
-        islem_onay=input("başka bir işlem yapmak istiyor musunuz ? (evet/hayır)").lower()      
-        if islem_onay=="evet":
-            print("yemekler sepete eklendi !")
-            odeme_onay=input("ödemeyi onaylıyor musunuz ? (evet/hayır)").lower()
-            if odeme_onay=="evet":
-                print("Ödemeniz onaylandı ! İyi günler diler, Neurapy'a yine bekleriz.")
-            elif odeme_onay=="hayır":
-                print("ödeme onaylanmadı. ana menüye dönülüyor...")
-                time.sleep(1)
-            else:
-                print("hatalı girdi.")
-        elif islem_onay=="hayır":
-            print("işlem onaylanmadı. ana menüye dönülüyor...")
-            time.sleep(1)
-        else:
-            print("hatalı girdi.")         
-                    
+                fiyat = df.loc[df["YEMEK ADI"] == yemek, "FİYAT"].values
+                yemek_listesi[yemek] = fiyat
+         yemek_listesi=pd.DataFrame(yemek_listesi)
+         print(yemek_listesi)
 
 
 
@@ -233,8 +199,8 @@ a = Neurapy()
 print("""
       Neurapy'a Hoş Geldiniz !
       Hangi işlemi yapmak istersiniz ?
-      1.Sistem açma
-      2.Sistem Kapatma
+      1.Makine açma
+      2.Makine Kapatma
       3.Menü Yazdırma
       4.Yemek İçeriğine Göre Yemek Önerisi Alma
       5.Yemeğe Göre Öneri Alma
@@ -258,11 +224,6 @@ Yemeğe göre öneri için 5 basabilirsiniz. \n """))
         elif islem == 4:
             a.icerige_gore_oneri()
 
-        elif islem == 5:
-            a.yemege_gore_oneri()
-        
-        elif islem== 6:
-            a.yemek_ekle()
 
-    except ValueError:
-        print("Hatalı işlem.")
+    elif islem == '5':
+         a.yemege_gore_oneri()
