@@ -9,7 +9,7 @@
 
 import pandas as pd
 import numpy as np
-import time as t
+import time 
 
 print("NEURAPY'A HOŞ GELDİNİZ !")
 class Neurapy():
@@ -22,7 +22,7 @@ class Neurapy():
         else:
             print("NEURAPY'A HOŞ GELDİNİZ !")
             print("Sistem açılıyor...")
-            t.sleep(1)
+            time.sleep(1)
             self.sistemi_acma = 'Açık'
             print('Sistem açıldı.')
         
@@ -108,14 +108,13 @@ class Neurapy():
                     print(fiyat) 
             print('Yemeklerinizin toplam fiyatı: ', toplam)
             onay = input('Siparişinizi onaylıyor musunuz(e/h)? ')
-            try:
-                if onay == 'e':
-                    print('Neurapyı tercih ettiniz için teşekkürler...')
-                elif onay == 'h':
-                    print('İşlemlerinizi iptal ediliyor.')
+            if onay == 'e':
+                print('Neurapyı tercih ettiniz için teşekkürler...')
+            elif onay == 'h':
+                print('İşlemlerinizi iptal ediliyor.')
 
-            except:
-                print ('Hatalı giriş yaptınız.')
+            else:
+                print ('Hatalı giriş yaptınız.', a)
 
 
     def yemege_gore_oneri(self):
