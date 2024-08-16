@@ -16,7 +16,7 @@ class Neurapy():
             time.sleep(1)
             self.sistem = 'Açık'
             print('Sistem Açıldı.')
-            time.sleep(1)
+            
         
     def sistem_kapat(self):
         if self.sistem == 'Kapalı':
