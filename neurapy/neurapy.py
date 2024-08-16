@@ -1,11 +1,3 @@
-# menü yazdırma/öneri alma
-# öneri yapma (girdi al, menüden benzerlik hesaplama (cosine benzerlik formülünü yazdığımız bir sınıf oluşturarak yapabiliriz.), öneri listesi sunma)
-# önerilerden satın almak isteyip istemediğini öğrenelim
-# öneriler içinden almak istediklerini seçtirme (fiyat hesaplama)
-# fiyat sunma
-# ekstra menüden almak istedikleri var mı diye soru sorma
-# varsa onları da alıp tekrar fiyat hesaplama
-# ödemeyi alma
 
 import pandas as pd
 import numpy as np
@@ -38,7 +30,7 @@ class Neurapy():
             print('Lütfen önce sistemi açın.')
         
         else:
-            file_path = "neurapy/neurapy/menu_dataset.csv"
+            file_path = "menu_dataset.csv"
             df = pd.read_csv(file_path)
             for i , a in zip(df['YEMEK ADI'], df['İÇERİK']):
                 print(i, '\n -', a)    
