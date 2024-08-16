@@ -74,49 +74,69 @@ class Neurapy():
 
         else:
 
-            file_path = "neurapy/neurapy/menu_dataset.csv"
+            file_path = "menu_dataset.csv"
 
             df = pd.read_csv(file_path)
 
-            kullanici_listesi = input("yemekte bulunmasını istediğiniz ürün/ürünlerin adını (virgülle ayrılmış) girin:  \n")
-            kullanici_listesi=[urun.strip() for urun in kullanici_listesi.split(",")]
+        for i , a in zip(df['YEMEK ADI'], df['İÇERİK']):
+            print(i, '\n -', a)
 
-            benzerlik_sonuclari = []
 
-            df['İÇERİK']=df['İÇERİK'].str.lower().values
+        kullanici_listesi = input("yemekte bulunmasını istediğiniz ürün/ürünlerin adını (virgülle ayrılmış) girin:  \n").split(',')
 
-            for _, row in df.iterrows():
-                sayac=0
-                for veri in kullanici_listesi:
-                    if veri in row["İÇERİK"]:
-                        sayac+=1
-                        if sayac>0:
-                            benzerlik_sonuclari.append({
-                                        "yemek adı": row["YEMEK ADI"],
-                                        "fiyatı" : row["FİYAT"],
-                                        "içeriği": row["İÇERİK"], 
-                                        "benzerlik miktarı": sayac})
-                    else:
-                        pass
+        def benzerlik_kontrolü(veri1, veri2):
+            return veri1 == veri2
 
-            benzerlik_df=pd.DataFrame(benzerlik_sonuclari)
-            benzerlik_sort=benzerlik_df.sort_values(by="benzerlik miktarı", ascending=False)
-            print(benzerlik_sort.head())
-            
-            satin_alma=input("önerilenlerden satın almak istediğiniz bir yemek var mı ? (evet/hayır").lower()
-            if satin_alma == 'evet':
-                ara_toplam=0
-                satin_alinan = input("hangi yiyecekleri satın almak istiyorsunuz ? numarasını giriniz:")
-                satin_alinan = [a.strip() for a in satin_alinan.split(",")]
-                satin_alinan=[int(b) for b in satin_alinan]
-                fiyatlar=[]
-                for c in satin_alinan:
-                    c=benzerlik_df.loc[c].values[1]
-                    fiyatlar.append(c)
-                    ara_toplam+=sum(fiyatlar)
-                print(f"toplam ücret: {ara_toplam}")
-                
-            self.islem_odeme_onay(ara_toplam)
+        benzerlik_sonuçları = []
+
+        index = -1
+        for hücre_verisi in df['İÇERİK']:
+                veriler = str(hücre_verisi).split(',')
+                veriler = [veri.strip() for veri in veriler]  
+                sayac = 0
+                index += 1
+                for veri in veriler: 
+                        for kullanıcı_verisi in kullanici_listesi:
+                            kullanıcı_verisi = kullanıcı_verisi.strip()
+                            oran = benzerlik_kontrolü(kullanıcı_verisi, veri)
+                            if oran == True:
+                                sayac += 1
+                if sayac != 0:
+                    benzerlik_sonuçları.append({
+                                    'sayac': sayac, 
+                                    'index': index  
+                })
+
+        benzerlik_sonuçları.sort(key=lambda x:x['sayac'])
+
+
+        sonuç_df = pd.DataFrame(benzerlik_sonuçları)
+        print('\n')
+        a = sonuç_df.tail(5)
+        for index in a['index']:
+            print('Yemek Adı: ' ,df['YEMEK ADI'][index], '   Yemeğin Fiyatı: ', df['FİYAT'][index],  '\n -', 'Yemeğin İçeriği: ', df['İÇERİK'][index], '\n')
+        satın_alma = input('Önerilenlerden satın almak istediğiniz yemek var mı?(evet/hayır): ').lower()
+        if satın_alma == 'evet':
+            satın_alınan = input('Satın almak istediğiniz yemeği ya da yemek/yemeklerin adını giriniz (virgülle ayırarak): ').lower()
+            satın_alınan = [a.strip() for a in satın_alınan.split(",")]
+        toplam = 0
+        df['YEMEK ADI'] = df['YEMEK ADI'].str.lower()
+        
+        self.toplam+=toplam
+        print('Yemeklerinizin toplam fiyatı: ', toplam)
+        islem_onay=input("başka bir işlem yapmak istiyor musunuz ? (evet/hayır)").lower()
+        if islem_onay=="evet":
+            print("yemekler sepete eklendi !")
+        elif islem_onay=="hayır":
+            odeme_onay=input("ödemeyi onaylıyor musunuz ? (evet/hayır)").lower()
+            if odeme_onay=="evet":
+                print("Ödemeniz onaylandı ! İyi günler diler, Neurapy'a yine bekleriz.")
+            elif odeme_onay=="hayır":
+                print("ödeme onaylanmadı. ana menüye dönülüyor...")
+                time.sleep(1)
+            else:
+                print("hatalı girdi.")
+        
 
 
     def yemege_gore_oneri(self):
