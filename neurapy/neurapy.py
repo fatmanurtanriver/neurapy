@@ -49,7 +49,7 @@ class Neurapy():
             print('Lütfen önce sistemi açın.')
         else:
 
-            file_path = "neurapy/neurapy/menu_dataset.csv"
+            file_path = "menu_dataset.csv"
 
             df = pd.read_csv(file_path)
 
@@ -88,17 +88,25 @@ class Neurapy():
         sonuç_df = pd.DataFrame(benzerlik_sonuçları)
         print('\n')
         a = sonuç_df.tail(5)
+        liste = []
         for index in a['index']:
+            liste.append({df['YEMEK ADI'][index]: df['FİYAT'][index]})
             print('Yemek Adı: ' ,df['YEMEK ADI'][index], '   Yemeğin Fiyatı: ', df['FİYAT'][index],  '\n -', 'Yemeğin İçeriği: ', df['İÇERİK'][index], '\n')
+        print(liste)
         satın_alma = input('Önerilenlerden satın almak istediğiniz yemek var mı?(evet/hayır): ').lower()
         if satın_alma == 'evet':
             satın_alınan = input('Satın almak istediğiniz yemeği ya da yemek/yemeklerin adını giriniz (virgülle ayırarak): ').lower()
             satın_alınan = [a.strip() for a in satın_alınan.split(",")]
         toplam = 0
         df['YEMEK ADI'] = df['YEMEK ADI'].str.lower()
-        
+        for i in satın_alınan:
+            for a in liste:
+                for b,c in a.items():
+                    print(b == pd.DataFrame(i))
+            
         self.toplam+=toplam
-        print('Yemeklerinizin toplam fiyatı: ', toplam)
+        print(self.toplam)
+        print('Yemeklerinizin toplam fiyatı: ', self.toplam)
         islem_onay=input("başka bir işlem yapmak istiyor musunuz ? (evet/hayır)").lower()
         if islem_onay=="evet":
             print("yemekler sepete eklendi ! menüden başka bir yemek eklemek isterseniz ana menüden 'Yemek Ekle' işlemini seçiniz.")
