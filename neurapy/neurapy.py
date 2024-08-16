@@ -115,8 +115,9 @@ class Neurapy():
                     fiyatlar.append(c)
                     ara_toplam+=sum(fiyatlar)
                 print(f"toplam ücret: {ara_toplam}")
-                
-            self.islem_odeme_onay(ara_toplam)
+                self.islem_odeme_onay(ara_toplam)
+            else:
+                print("ana menüye dönülüyor...")
 
 
     def yemege_gore_oneri(self):
@@ -151,30 +152,33 @@ class Neurapy():
                                     "yemek fiyatı": row["FİYAT"],
                                     "benzerlik miktarı": len(kesisim_bul)})
                                 
-                        df_oneri=oneri_list.sort(key=lambda x:x["benzerlik miktarı"])
-                        oneri_list.pop()
+
                         df_oneri=pd.DataFrame(oneri_list)
-                        print(df_oneri.tail(5))
+                        oneri_sort=df_oneri.sort_values(by="benzerlik miktarı", ascending=True)
+                        son_bes=oneri_sort.tail(6)
+                    print(son_bes.drop(son_bes.index[-1]))
 
-                        satin_al_sor=input("önerilenlerden satın almak istediğiniz bir yemek var mı ? (evet/hayır").lower()
-                        if satin_al_sor=="evet":
-                            ara_toplam=0
-                            satin_al=input("hangi yiyecekleri satın almak istiyorsunuz ? numarasını giriniz:")
+                    satin_al_sor=input("önerilenlerden satın almak istediğiniz bir yemek var mı ? (evet/hayır").lower()
+                    if satin_al_sor=="evet":
+                        ara_toplam=0
+                        satin_al=input("hangi yiyecekleri satın almak istiyorsunuz ? numarasını giriniz:")
 
-                            satin_al = [i.strip() for i in satin_al.split(",")]
-                            satin_al=[int(b) for b in satin_al]
-                            fiyatlar=[]
-                            for c in satin_al:
-                                c=df_oneri.loc[c].values[1]
-                                fiyatlar.append(c)
-                            ara_toplam+=sum(fiyatlar)
-                            print(f"toplam ücret: {ara_toplam}")
-                            self.islem_odeme_onay(ara_toplam)
-                        
-                        elif girdi_al=="q":
-                            break
-                        else:
-                            print("menümüzde böyle bir yemek bulunmamaktadır. Tekrar deneyiniz.")
+                        satin_al = [i.strip() for i in satin_al.split(",")]
+                        satin_al=[int(b) for b in satin_al]
+                        fiyatlar=[]
+                        for c in satin_al:
+                            c=df_oneri.loc[c].values[1]
+                            fiyatlar.append(c)
+                        ara_toplam+=sum(fiyatlar)
+                        print(f"toplam ücret: {ara_toplam}")
+                        self.islem_odeme_onay(ara_toplam)
+                    else:
+                        print("ana menüye dönülüyor...")
+                    
+                elif girdi_al=="q":
+                    break
+                else:
+                    print("menümüzde böyle bir yemek bulunmamaktadır. Tekrar deneyiniz.")
 
 
     def yemek_ekle(self):
@@ -191,6 +195,8 @@ class Neurapy():
         print(yemek_listesi_df)
         toplam_ekle=yemek_listesi_df["FİYAT"].sum()
         print(f"eklenecek ücret: {toplam_ekle}")
+        print(f"ANA TOPLAM:{self.toplam+toplam_ekle}")
+
         self.islem_odeme_onay(toplam_ekle)        
                         
 a = Neurapy()
