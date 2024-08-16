@@ -38,7 +38,7 @@ class Neurapy():
             print('Lütfen önce sistemi açın.')
         
         else:
-            file_path = "neurapy/neurapy/menu_dataset.csv"
+            file_path = "menu_dataset.csv"
             df = pd.read_csv(file_path)
             for i , a in zip(df['YEMEK ADI'], df['İÇERİK']):
                 print(i, '\n -', a)    
@@ -74,7 +74,7 @@ class Neurapy():
 
         else:
 
-            file_path = "neurapy/neurapy/menu_dataset.csv"
+            file_path = "menu_dataset.csv"
 
             df = pd.read_csv(file_path)
 
@@ -126,7 +126,7 @@ class Neurapy():
             print('Lütfen önce sistemi açın.')
             
         else:
-            df = pd.read_csv("neurapy/neurapy/menu_dataset.csv")
+            df = pd.read_csv("menu_dataset.csv")
             df.set_index("YEMEK ADI", inplace=True)
             df.index = df.index.str.lower()
 
@@ -182,7 +182,7 @@ class Neurapy():
 
 
     def yemek_ekle(self):
-        df = pd.read_csv("neurapy/neurapy/menu_dataset.csv")
+        df = pd.read_csv("menu_dataset.csv")
         fiyat_list=[]
         yemek_isimleri=input("eklemek istediğiniz yemek/yemeklerin adını (virgülle ayırarak) giriniz:").lower()
         yemek_isimleri=[n.strip() for n in yemek_isimleri.split(",")]
