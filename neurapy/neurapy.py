@@ -1,11 +1,3 @@
-# menü yazdırma/öneri alma
-# öneri yapma (girdi al, menüden benzerlik hesaplama (cosine benzerlik formülünü yazdığımız bir sınıf oluşturarak yapabiliriz.), öneri listesi sunma)
-# önerilerden satın almak isteyip istemediğini öğrenelim
-# öneriler içinden almak istediklerini seçtirme (fiyat hesaplama)
-# fiyat sunma
-# ekstra menüden almak istedikleri var mı diye soru sorma
-# varsa onları da alıp tekrar fiyat hesaplama
-# ödemeyi alma
 
 import pandas as pd
 import numpy as np
